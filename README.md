@@ -84,7 +84,7 @@ The api can now be accessed at
     }
 ```
 
-![screenshots/post_create_ticket.png](post_create_ticket.png)
+![](screenshots/post_create_ticket.png)
 
 ### View tickets of a particular timing
 
@@ -115,7 +115,7 @@ The api can now be accessed at
     ]
 ```
 
-![screenshots/get_ticket_timing.png](get_ticket_timing.png)
+![](screenshots/get_ticket_timing.png)
 
  ### View the user’s details based on the ticket id
 `GET http://localhost:8000/api/user?ticket_id=4`
@@ -132,7 +132,7 @@ The api can now be accessed at
       }
 ```
 
-![screenshots/get_user_ticket.png](get_user_ticket.png)
+![](screenshots/get_user_ticket.png)
 
 
 ### Update ticket timing
@@ -154,7 +154,7 @@ The api can now be accessed at
     }
 ```
 
-![screenshots/update_ticket_timing.png](update_ticket_timing.png)
+![](screenshots/update_ticket_timing.png)
 
 
 ### Delete Ticket
@@ -166,4 +166,4 @@ The api can now be accessed at
     }
 ```
 
-![screenshots/delete_ticket_id.png](get_ticket_id.png)
+![](screenshots/delete_ticket_id.png)
