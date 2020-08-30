@@ -41,9 +41,9 @@ class TicketController extends Controller
       ], 201);
     }
 
-    public function getTicket($id) {
-      if (Ticket::where('id', $id)->exists()) {
-        $ticket = Ticket::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+    public function getTicket(Request $request) {
+      if (Ticket::where('timing', $request->time)->exists()) {
+        $ticket = Ticket::where('timing', $request->time)->get()->toJson(JSON_PRETTY_PRINT);
         return response($ticket, 200);
       } else {
         return response()->json([
