@@ -13,9 +13,17 @@ class TicketController extends Controller
     }
 
     public function createTicket(Request $request) {
+
+      $user = User::where('phone', '=', $request->phone)->first();
+      if($user === null) {
+          $user = new User;
+      }
+      $user->phone = $request->phone;
+
       $ticket = new Ticket;
       $ticket->title = $request->name;
-      $ticket->user_id = 1;
+      $ticket->timing = $request->time;
+      $ticket->user_id = $user->id;
       $ticket->save();
 
       return response()->json([
