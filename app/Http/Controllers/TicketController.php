@@ -15,6 +15,12 @@ class TicketController extends Controller
 
     public function createTicket(Request $request) {
 
+      if(Ticket::where('timing', '=', $request->time)->count() >= 20){
+          return response()->json([
+            "message" => "Already 20 tickets for this timing"
+        ], 200);
+      }
+
       $user = User::where('phone', '=', $request->phone)->first();
       if($user === null) {
           $user = new User;
