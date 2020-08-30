@@ -1,8 +1,5 @@
 # Ticket Booking System
 
-
-----------
-
 # Getting started
 
 ## Installation
@@ -17,10 +14,10 @@ Please check the official laravel installation guide for server requirements bef
     composer install
     cp .env.example .env
     php artisan key:generate
-    php artisan jwt:generate 
+    php artisan jwt:generate
     php artisan migrate
     php artisan serve
-    
+
 ## Environment variables
 
 - `.env` - Environment variables can be set in this file
@@ -51,7 +48,7 @@ Run the laravel development server
 The api can now be accessed at
 
     http://localhost:8000/api
- 
+
 
 
 ## Endpoints:
@@ -60,9 +57,9 @@ The api can now be accessed at
 ### Create Ticket
 
 `POST http://localhost:8000/api/tickets?name=naman&phone=9776543210&timing=20-08-30%2012:00`
-     
-   
-    
+
+
+
 ```JSON
     {
         "message": "ticket record created",
@@ -85,12 +82,12 @@ The api can now be accessed at
             "updated_at": "2020-08-30T21:36:19.000000Z"
         }
     }
-``` 
-    
+```
+
 ### View tickets of a particular timing
- 
+
 `GET http://localhost:8000/api/tickets?timing=2020-08-30%12:00`
-    
+
 ```JSON
     [
         {
@@ -115,10 +112,10 @@ The api can now be accessed at
         }
     ]
 ```
-    
- ### View the user’s details based on the ticket id 
+
+ ### View the user’s details based on the ticket id
 `GET http://localhost:8000/api/user?ticket_id=4`
-    
+
 ```JSON
      {
         "id": 3,
@@ -130,10 +127,10 @@ The api can now be accessed at
         "updated_at": "2020-08-30T21:36:19.000000Z"
       }
 ```
-    
+
 ### Update ticket timing
 `PUT http://localhost:8000/api/tickets?ticket_id=1&timing=2020-08-30%03:00`
-    
+
 ```JSON
     {
     "message": "records updated successfully",
@@ -149,14 +146,12 @@ The api can now be accessed at
         }
     }
 ```
-    
+
 ### Delete Ticket
 `DELETE http://localhost:8000/api/tickets?ticket_id=4`
-    
+
 ```JSON
     {
         "message": "record deleted with id: 4"
     }
 ```
-
-

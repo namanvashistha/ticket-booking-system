@@ -62,7 +62,8 @@ class TicketController extends Controller
         $ticket->save();
 
         return response()->json([
-          "message" => "records updated successfully"
+          "message" => "records updated successfully",
+          "ticket" => $ticket
         ], 200);
       } else {
         return response()->json([
