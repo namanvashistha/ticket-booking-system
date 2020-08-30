@@ -19,6 +19,7 @@ Please check the official laravel installation guide for server requirements bef
     php artisan serve
 
 **For Automatic Deletion of expired tickets start the scheduler**
+   
     php artisan schedule:run
 
 
