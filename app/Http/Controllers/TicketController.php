@@ -32,6 +32,7 @@ class TicketController extends Controller
       $ticket = new Ticket;
       $ticket->title = $request->title;
       $ticket->timing = $request->timing;
+      $ticket->expiry = date('Y-m-d H:i:s',strtotime('+8 hours',strtotime($request->timing)));
       $ticket->user_id = $user->id;
       $ticket->save();
 

@@ -17,6 +17,7 @@ class CreateTicketsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->timestamp('timing');
+            $table->timestamp('expiry')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->string('status')->default(1);
             $table->timestamps();
