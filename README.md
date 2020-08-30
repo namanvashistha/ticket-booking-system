@@ -84,6 +84,8 @@ The api can now be accessed at
     }
 ```
 
+![screenshots/post_create_ticket.png](post_create_ticket.png)
+
 ### View tickets of a particular timing
 
 `GET http://localhost:8000/api/tickets?timing=2020-08-30%12:00`
@@ -113,6 +115,8 @@ The api can now be accessed at
     ]
 ```
 
+![screenshots/get_ticket_timing.png](get_ticket_timing.png)
+
  ### View the user’s details based on the ticket id
 `GET http://localhost:8000/api/user?ticket_id=4`
 
@@ -127,6 +131,9 @@ The api can now be accessed at
         "updated_at": "2020-08-30T21:36:19.000000Z"
       }
 ```
+
+![screenshots/get_user_ticket.png](get_user_ticket.png)
+
 
 ### Update ticket timing
 `PUT http://localhost:8000/api/tickets?ticket_id=1&timing=2020-08-30%03:00`
@@ -147,6 +154,9 @@ The api can now be accessed at
     }
 ```
 
+![screenshots/update_ticket_timing.png](update_ticket_timing.png)
+
+
 ### Delete Ticket
 `DELETE http://localhost:8000/api/tickets?ticket_id=4`
 
@@ -155,3 +165,5 @@ The api can now be accessed at
         "message": "record deleted with id: 4"
     }
 ```
+
+![screenshots/delete_ticket_id.png](get_ticket_id.png)
