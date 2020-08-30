@@ -15,7 +15,7 @@ class TicketController extends Controller
 
     public function createTicket(Request $request) {
 
-      if(Ticket::where('timing', '=', $request->time)->count() >= 20){
+      if(Ticket::where('timing', '=', $request->timing)->count() >= 20){
           return response()->json([
             "message" => "Already 20 tickets for this timing"
         ], 200);
@@ -26,11 +26,12 @@ class TicketController extends Controller
           $user = new User;
       }
       $user->phone = $request->phone;
+      $user->name = $request->name;
       $user->save();
 
       $ticket = new Ticket;
-      $ticket->title = $request->name;
-      $ticket->timing = $request->time;
+      $ticket->title = $request->title;
+      $ticket->timing = $request->timing;
       $ticket->user_id = $user->id;
       $ticket->save();
 
@@ -42,8 +43,8 @@ class TicketController extends Controller
     }
 
     public function getTicket(Request $request) {
-      if (Ticket::where('timing', $request->time)->exists()) {
-        $ticket = Ticket::where('timing', $request->time)->get()->toJson(JSON_PRETTY_PRINT);
+      if (Ticket::where('timing', $request->timing)->exists()) {
+        $ticket = Ticket::where('timing', $request->timing)->get()->toJson(JSON_PRETTY_PRINT);
         return response($ticket, 200);
       } else {
         return response()->json([
@@ -56,8 +57,7 @@ class TicketController extends Controller
       if (Ticket::where('id', $request->ticket_id)->exists()) {
         $ticket = Ticket::find($request->ticket_id);
 
-        $ticket->title = is_null($request->name) ? $ticket->title : $request->name;
-        $ticket->user_id = is_null($request->user) ? $ticket->user_id : $request->user;
+        $ticket->timing = is_null($request->timing) ? $ticket->timing : $request->timing;
         $ticket->save();
 
         return response()->json([
