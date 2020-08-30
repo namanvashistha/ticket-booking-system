@@ -84,4 +84,16 @@ class TicketController extends Controller
         ], 404);
       }
     }
+
+    public function getUser(Request $request) {
+        if (Ticket::where('id', $request->ticket_id)->exists()) {
+          $user = Ticket::where('id',$request->ticket_id)->first()->user;
+          return response($user, 200);
+        } else {
+          return response()->json([
+            "message" => "Ticket not found"
+          ], 404);
+        }
+    }
+
 }

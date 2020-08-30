@@ -24,3 +24,5 @@ Route::get('tickets', 'TicketController@getTicket');
 Route::post('tickets', 'TicketController@createTicket');
 Route::put('tickets/{id}', 'TicketController@updateTicket');
 Route::delete('tickets/{id}', 'TicketController@deleteTicket');
+
+Route::get('user', 'TicketController@getUser');
