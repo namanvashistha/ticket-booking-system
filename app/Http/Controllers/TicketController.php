@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ticket;
+use App\User;
 
 class TicketController extends Controller
 {
@@ -19,6 +20,7 @@ class TicketController extends Controller
           $user = new User;
       }
       $user->phone = $request->phone;
+      $user->save();
 
       $ticket = new Ticket;
       $ticket->title = $request->name;
@@ -27,7 +29,9 @@ class TicketController extends Controller
       $ticket->save();
 
       return response()->json([
-        "message" => "ticket record created"
+        "message" => "ticket record created",
+        "ticket" => $ticket,
+        "user" => $user
       ], 201);
     }
 
