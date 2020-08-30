@@ -52,9 +52,9 @@ class TicketController extends Controller
       }
     }
 
-    public function updateTicket(Request $request, $id) {
-      if (Ticket::where('id', $id)->exists()) {
-        $ticket = Ticket::find($id);
+    public function updateTicket(Request $request) {
+      if (Ticket::where('id', $request->ticket_id)->exists()) {
+        $ticket = Ticket::find($request->ticket_id);
 
         $ticket->title = is_null($request->name) ? $ticket->title : $request->name;
         $ticket->user_id = is_null($request->user) ? $ticket->user_id : $request->user;
@@ -70,13 +70,13 @@ class TicketController extends Controller
       }
     }
 
-    public function deleteTicket ($id) {
-      if(Ticket::where('id', $id)->exists()) {
-        $ticket = Ticket::find($id);
+    public function deleteTicket (Request $request) {
+      if(Ticket::where('id', $request->ticket_id)->exists()) {
+        $ticket = Ticket::find($request->ticket_id);
         $ticket->delete();
 
         return response()->json([
-          "message" => "records deleted"
+          "message" => "record deleted with id: ".$request->ticket_id
         ], 202);
       } else {
         return response()->json([
