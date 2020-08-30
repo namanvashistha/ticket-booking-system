@@ -18,6 +18,10 @@ Please check the official laravel installation guide for server requirements bef
     php artisan migrate
     php artisan serve
 
+**For Automatic Deletion of expired tickets start the scheduler**
+    php artisan schedule:run
+
+
 ## Environment variables
 
 - `.env` - Environment variables can be set in this file
