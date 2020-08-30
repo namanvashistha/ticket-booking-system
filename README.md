@@ -86,6 +86,10 @@ The api can now be accessed at
 
 ![](screenshots/post_create_ticket.png)
 
+
+
+
+
 ### View tickets of a particular timing
 
 `GET http://localhost:8000/api/tickets?timing=2020-08-30%12:00`
@@ -117,6 +121,9 @@ The api can now be accessed at
 
 ![](screenshots/get_ticket_timing.png)
 
+
+
+
  ### View the user’s details based on the ticket id
 `GET http://localhost:8000/api/user?ticket_id=4`
 
@@ -133,6 +140,10 @@ The api can now be accessed at
 ```
 
 ![](screenshots/get_user_ticket.png)
+
+
+
+
 
 
 ### Update ticket timing
@@ -155,6 +166,9 @@ The api can now be accessed at
 ```
 
 ![](screenshots/update_ticket_timing.png)
+
+
+
 
 
 ### Delete Ticket
