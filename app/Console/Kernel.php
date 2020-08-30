@@ -29,10 +29,8 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->call(function () {
 
-              $ticket = Ticket::find(1);
-              
-              $ticket->timing = date('Y-m-d H:i:s');
-              $ticket->save();
+              $ticket = Ticket::where('expiry','>=',date('Y-m-d H:i:s'));
+              $ticket->delete();
 
         })->hourly();
     }
